@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sir Fareed Assignment</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <section class="hero" id="home">
+    <div class="container">
+      <header>
+        <img src="./logo.png" alt=""> 
+
+        <button class="menu" id="menuBtn" aria-label="Open menu">☰</button>
+
+        <nav id="nav">
+          <a href="#home" class="active">Home</a>
+          <a href="#shop">Our Shop</a>
+          <a href="#details">Product Details</a>
+          <a href="#contact">Contact Us</a>
+          <a href="#signin" class="signin">SIGN IN</a>
+        </nav>
+      </header>
+
+      <div class="hero-content">
+        <div class="copy">
+          <div class="eyebrow">WELCOME TO LUGX</div>
+          <h1>BEST <span>GAMING</span> SITE EVER!</h1>
+          <p class="description">
+            LUGX Gaming is a free Bootstrap 5 HTML CSS website template for your gaming websites.
+          </p>
+
+          <form class="search" id="searchForm">
+            <input id="searchInput" type="text" placeholder="Type Something" aria-label="Search games">
+            <button type="submit">SEARCH NOW</button>
+          </form>
+          <div class="result" id="result"></div>
+        </div>
+
+        <div class="product-wrap">
+          <div class="product">
+            <img src="./Assasin Creed.jpg" alt="Gaming character">
+            <div class="price">$22</div>
+          </div>
+          <div class="discount">-40%</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="shop">
+    <div class="container">
+      <h2>Our Shop</h2>
+      <p>Explore our gaming collection. This section is ready for you to add game cards, prices and categories.</p>
+    </div>
+  </section>
+
+  <section class="section" id="details">
+    <div class="container">
+      <h2>Product Details</h2>
+      <p>Use this area for detailed information about your selected game or product.</p>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <p>@Abubaker@gmail.com</p>
+    </div>
+  </section>
+
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const nav = document.getElementById("nav");
+    const searchForm = document.getElementById("searchForm");
+    const searchInput = document.getElementById("searchInput");
+    const result = document.getElementById("result");
+
+    menuBtn.addEventListener("click", () => {
+      nav.classList.toggle("open");
+    });
+
+    document.querySelectorAll("nav a").forEach(link => {
+      link.addEventListener("click", () => nav.classList.remove("open"));
+    });
+
+    searchForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const value = searchInput.value.trim();
+
+      if (!value) {
+        result.textContent = "Please type a game name first.";
+        return;
+      }
+
+      result.textContent = `Searching for "${value}"...`;
+    });
+  </script>
+</body>
+</html>
